@@ -1,0 +1,58 @@
+<!-- row1 start -->
+<div class="row mt-5 reservesection">
+  <div class="col-md-12 text-center p-2">
+    <h2>Reserve Your Video</h2>
+  </div>
+</div>
+<!-- row1 end -->
+
+<!-- row2 start -->
+<div class="row mt-1 reservesection" >
+  <div class="col-md-3 p-5">
+    <img [src]="imgpath" 
+    class="rounded-circle" alt="Cinque Terre" width="100" height="100">
+  </div>
+
+  <div class="col-md-9" >
+    <div class="row my-2">
+      <div class="col-md-4 col-sm-6">Title : </div>
+      <div class="col-md-8 col-sm-6"> {{videos[indexparm].title}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-4">Running Time: </div>
+      <div class="col-md-8">{{videos[indexparm].runtime}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-4">Genre: </div>
+      <div class="col-md-8">{{videos[indexparm].genre}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-4">Rating: </div>
+      <div class="col-md-8">{{videos[indexparm].rating}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-4">Director: </div>
+      <div class="col-md-8">{{videos[indexparm].director}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-4">Customer: </div>
+      <div class="col-md-8">
+          <select class="selectpicker" #customerName> 
+                <option>Farhad</option>
+                <option>Hossain</option>
+                <option>Raiyan</option>
+            </select>
+      </div>
+    </div>
+    <div class="row text-left  my-5">
+      <div class="col-md-4">
+        <button [routerLink]="['']" class="btn btn-primary mr-2">Back</button>
+        <button class="btn btn-success" (click)="reserveVideos(genre)">Reserve</button>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>
+<!-- row2 end -->

@@ -1,0 +1,49 @@
+<!-- row no 1 start  -->
+<div class="row mt-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+        <span class="input-group-append">
+          <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+        </span>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <!-- row no 1 end  -->
+  
+  
+  <!-- row no 2 start  -->
+  <div class="row mt-5">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Running Time</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Director</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let vid of videos; let i=index">
+          <tr>
+            <td>{{ vid.title}}</td>
+            <td>{{ vid.runtime}}</td>
+            <td>{{ vid.genre}}</td>
+            <td>{{ vid.rating}}</td>
+            <td>{{ vid.director}}</td>
+            <td>{{ vid.status}}</td>
+            <td><button [routerLink]="['/reserve/'+i]" class="btn btn-primary" [ngClass]="{ hidden: vid.status=='unavailable'}">Reserve</button></td>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <!-- row no 2 end  -->
