@@ -34,19 +34,18 @@ router.post('/addvideo',(req,res,next)=>
 
 });
 
-//delete cont
-// router.delete("/delete/:id", (req,res,next)=>
-// {
-// router.remove({__id:req.body.params.id},(err,result)=>
-// {
-//     if(err){
-//         res.json(err)
-//     }
-//     else{
-//         res.json(result)
-//     }
-// })
-// });
+router.delete("/video/:id", (req,res,next)=>
+{
+Video.remove({_id:req.params.id},(err,result)=>
+{
+    if(err){
+        res.json(err)
+    }
+    else{
+        res.json(result)
+    }
+})
+});
     
 
 

@@ -23,6 +23,13 @@ export class VideolistServiceService {
     return this.http.post("http://localhost:3000/addvideo", newvideo,{headers:headers})
     .map(res=>res.json());
   }
+  reserveVideo(id)
+  {
+    var headers=new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.put("http://localhost:3000/video/"+id, id,{headers:headers})
+    .map(res=>res.json()); 
+  }
 
 }
 

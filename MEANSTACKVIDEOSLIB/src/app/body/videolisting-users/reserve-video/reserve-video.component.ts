@@ -17,7 +17,7 @@ export class ReserveVideoComponent implements OnInit {
 
   }
 
-  reserveVideos(selctvalue)
+  reserveVideos(id)
   {  
     this.route.params
     .subscribe(

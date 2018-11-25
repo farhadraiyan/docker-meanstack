@@ -37,7 +37,7 @@ export class AddVideoComponent implements OnInit {
       this.videoservice.addVideo(newVideo)
       .subscribe(vids=>{
         this.videos.push(vids)
-      })
+      })  
 
   }
 
