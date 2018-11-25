@@ -46,6 +46,21 @@ Video.remove({_id:req.params.id},(err,result)=>
     }
 })
 });
+
+router.put("/reserve/:id", (req,res,next)=>
+{
+Video.findById({_id:req.params.id},(err,result)=>
+{
+    if(err){
+        res.json(err)
+    }
+    else{
+        result.status="Unavailable"
+        result.save();
+        res.json(result)
+    }
+})
+});
     
 
 

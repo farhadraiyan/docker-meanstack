@@ -17,6 +17,10 @@ export class VideolistingAdminComponent implements OnInit {
   constructor(private videoService:VideolistServiceService, private router:Router) { }
 
   ngOnInit() {
+    this.videoService.getVideolist()
+    .subscribe((vids) => {
+      this.videos = vids;
+    })
     
 
   }
