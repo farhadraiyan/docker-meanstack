@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { VideolistServiceService } from '../../../videolist-service.service';
 import { NgForm } from '@angular/forms';
 import { Videos } from '../../videolisting-users/videos.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-video',
@@ -15,7 +16,7 @@ export class AddVideoComponent implements OnInit {
   videos: Videos[]=[];
   defImgUrl: string = "../../../../assets/default.png";//this default image url
   fileName = "default.png";
-  constructor(private http: HttpClient, private videoservice: VideolistServiceService) { }
+  constructor(private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
 
@@ -37,7 +38,9 @@ export class AddVideoComponent implements OnInit {
       this.videoservice.addVideo(newVideo)
       .subscribe(vids=>{
         this.videos.push(vids)
-      })  
+      })
+      
+      this.router.navigate(['/videolist']);
 
   }
 

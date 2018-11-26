@@ -1,20 +1,15 @@
 <div class="row m-5">
-    <div class="col-md-3">
-      <button (click)="navigateVids()" class="btn btn-block btn-success">Videos</button>
-    </div>
-    <div class="col-md-3">
-      <button class="btn btn-block btn-primary">Customers</button>
-    </div>
-    <div class="col-md-6">
-    </div>
+    <div class="col-md-12">
+        <div class="btn-group d-flex" role="group">
+            <button id="btn1" type="button" (click)="navigateVids()" class="btn btn-secondary w-100 ">Videos</button>
+            <button id='btn2' type="button" (click)="navigateCusts()" class="btn btn-success w-100">Customers</button>
+        </div>
   </div>
-  
-  
-  
+</div>
+
   <div class="row">
-    <div class="col-md-4"></div>
-  
-    <div class="col-md-4">
+    <div class="col-md-3"></div> 
+    <div class="col-md-6">
       <div class="input-group">
         <input class="form-control border-right-0 border" type="search" placeholder="search" id="example-search-input">
         <span class="input-group-append">
@@ -23,7 +18,7 @@
       </div>
     </div>
   
-    <div class="col-md-4">
+    <div class="col-md-3">
     </div>
   </div>
   

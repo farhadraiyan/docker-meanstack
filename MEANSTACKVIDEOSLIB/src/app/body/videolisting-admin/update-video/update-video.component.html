@@ -3,10 +3,10 @@
     
   </div>
   <div class="col-md-8" id="updatevidsection">
-    <div class="row">
+    <div class="row py-2 head">
       <div class="col-md-12 text-center"><h2>Update Video</h2></div>
     </div>
-    <div class="row">
+    <div class="row py-5">
         <div class="col-md-2 text-center">
             <img [src]="defImgPath" class="mb-3" style="height:100px; width:100px;">
             <label class="btn btn-primary" for="my-file-selector">
@@ -81,9 +81,10 @@
                                   </select>
                             </div>
                           </div>
-                          <button  [routerLink]="['/videolist']" type="submit" class="btn btn-primary mr-3 px-5">Back</button><span></span>
+                          <button  type="submit" class="btn btn-primary px-4 float-right">Update video</button>
+                          <button  [routerLink]="['/videolist']" type="submit" class="btn btn-primary mr-3 float-right px-5">Back</button>
 
-                          <button  type="submit" class="btn btn-primary px-4">Update video</button>
+                          
 
             </form>
 

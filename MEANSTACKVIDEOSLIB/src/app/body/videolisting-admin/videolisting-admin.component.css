@@ -1,0 +1,8 @@
+#btn1, #btn2{
+    width: 50%;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #286090; /* new color goes her */
+    border-color: #204d74;
+}
