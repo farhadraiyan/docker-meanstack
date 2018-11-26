@@ -33,5 +33,12 @@ export class VideolistServiceService {
     .map(res=>res.json())
   }
 
+  updateVideo(video) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put("http://localhost:3000/updatevideo/" + video._id, video,{ headers: headers })
+      .map(res => res.json());
+  }
+
 }
 

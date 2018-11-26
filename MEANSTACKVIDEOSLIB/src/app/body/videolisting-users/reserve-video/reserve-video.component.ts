@@ -38,7 +38,6 @@ export class ReserveVideoComponent implements OnInit {
         {
           this.videotobeReserved=this.videos[i];
           this.fileName=this.videotobeReserved.imgPath;
-          console.log(this.fileName)
         }
       }
       
