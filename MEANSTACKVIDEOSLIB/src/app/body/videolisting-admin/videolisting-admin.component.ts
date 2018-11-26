@@ -40,8 +40,10 @@ this.router.navigate(['/customers']);
   {
     this.router.navigate(['/videolist']);
   }
-  deleteVideo(index)
+  deleteVideo(index,id)
   {
+    this.videoService.deleteVideo(id)
+    .subscribe()
     this.videos.splice(index,1);
 
   }

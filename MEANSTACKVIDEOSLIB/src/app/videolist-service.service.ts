@@ -27,6 +27,11 @@ export class VideolistServiceService {
     return this.http.put("http://localhost:3000/reserve/" + id, id)
       .map(res => res.json());
   }
+  deleteVideo(id)
+  {
+    return this.http.delete("http://localhost:3000/video/"+id)
+    .map(res=>res.json())
+  }
 
 }
 
