@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VideolistServiceService } from 'src/app/videolist-service.service';
 import { Videos } from '../videolisting-users/videos.model';
 import { Router } from '@angular/router';
+import {CookieService} from 'ngx-cookie-service';
 
 
 @Component({
@@ -14,9 +15,16 @@ export class VideolistingAdminComponent implements OnInit {
   videos: Videos[];
   imgPath="../../../../assets/";
 
-  constructor(private videoService:VideolistServiceService, private router:Router) { }
+  constructor(private cookieservice:CookieService,private videoService:VideolistServiceService, private router:Router) { }
 
   ngOnInit() {
+    //checking user login status if not logged in redirect
+    if(this.cookieservice.get("login")=="")
+    {
+      this.router.navigate(['']);
+    }
+
+    //subscribe to get all videos 
     this.videoService.getVideolist()
     .subscribe((vids) => {
       this.videos = vids;

@@ -22,6 +22,7 @@ export class AdminloginComponent implements OnInit {
   constructor(private cookieservice:CookieService, private router:Router, private adminservice:AdminService) { }
 
   ngOnInit() {
+    
     this.adminservice.getAdmins()
     .subscribe((admins)=>{
       this.admins=admins
