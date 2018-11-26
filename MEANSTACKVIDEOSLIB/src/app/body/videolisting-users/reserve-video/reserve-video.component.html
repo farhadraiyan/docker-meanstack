@@ -36,12 +36,11 @@
     </div>
     <div class="row mb-2">
       <div class="col-md-4">Customer: </div>
-      <div class="col-md-8">
-          <select class="selectpicker" #customerName> 
-                <option>Farhad</option>
-                <option>Hossain</option>
-                <option>Raiyan</option>
+      <div class="col-md-8" >
+          <select class="selectpicker" #customerName > 
+                <option *ngFor="let c of customers;let i=index">{{c.firstName}} {{c.firstName}}</option>
             </select>
+
       </div>
     </div>
     <div class="row text-left  my-5">

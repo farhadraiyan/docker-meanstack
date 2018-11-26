@@ -18,6 +18,7 @@ import { CustomerlistComponent } from './body/videolisting-admin/customerlist/cu
 import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { VideolistServiceService } from './videolist-service.service';
+import { CustomerServiceService } from './body/videolisting-admin/customerlist/customer-service.service';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},
@@ -50,7 +51,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CookieService],
+  providers: [CookieService, CustomerServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

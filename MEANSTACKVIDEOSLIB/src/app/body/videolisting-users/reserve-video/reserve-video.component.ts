@@ -3,6 +3,8 @@ import { VideolistServiceService } from '../../../videolist-service.service';
 import { Videos } from '../videos.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Customer } from '../../videolisting-admin/customerlist/customer.model';
+import { CustomerServiceService } from '../../videolisting-admin/customerlist/customer-service.service';
 @Component({
   selector: 'app-reserve-video',
   templateUrl: './reserve-video.component.html',
@@ -14,11 +16,19 @@ export class ReserveVideoComponent implements OnInit {
   imgpath = "../../../../assets/";
   videotobeReserved:Videos={title:"",runtime:"",genre:"",rating:"",director:"",status:"",imgPath:""};//assigning this default object to avoid error in life cyle hook
   indexparm = this.route.snapshot.params['index'];
-  constructor(private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService) {
+
+  customers:Customer[];
+  constructor(private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService,private customerService:CustomerServiceService) {
 
    }
 
   ngOnInit() {
+    this.customerService.currentcustomers
+    .subscribe((custs)=>{
+      this.customers=custs
+    })
+    // this.customers=[new Customer("far","fd","d","df","df","df")];
+    // console.log(this.customers[0].firstName)
     this.videoservice.getVideolist()
     .subscribe((vids) => {
       this.videos = vids;

@@ -1,6 +1,7 @@
 const express=require("express");
 const router=express.Router();
 const Video=require('../models/Videos');
+const Admin=require("../models/Admin");
 //retrieve
 router.get('/videolist',(req,res,next)=>
 {
@@ -8,6 +9,14 @@ Video.find(function(err,videos){
 res.json(videos);
 })
 });
+//for login
+router.get('/login',(req,res,next)=>
+{
+Admin.find(function(err,admins){
+res.json(admins);
+})
+});
+
 //add contact
 
 router.post('/addvideo',(req,res,next)=>
