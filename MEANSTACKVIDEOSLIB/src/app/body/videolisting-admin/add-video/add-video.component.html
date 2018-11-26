@@ -4,98 +4,78 @@
   <div class="col-md-8" id="addVidSection">
     <h2 class="text-center my-2">Add Video</h2>
     <div class="row">
-        <div class="col-md-12 text-center text-danger">
+      <div class="col-md-12 text-center text-danger">
 
-            <span *ngIf="!title.valid && title.touched"> Title is required </span>
-            <span *ngIf="!runtime.valid && runtime.touched">and Run time is required </span>
-            <span *ngIf="!dir.valid && dir.touched">and Director is required</span>
-          </div>
+        <span *ngIf="!title.valid && title.touched"> Title is required </span>
+        <span *ngIf="!runtime.valid && runtime.touched">and Run time is required </span>
+        <span *ngIf="!dir.valid && dir.touched">and Director is required</span>
+      </div>
     </div>
 
     <div class="row p-5">
       <div class="col-md-2 text-center">
         <img [src]="defImgUrl" class="mb-3" style="height:100px; width:100px;">
         <label class="btn btn-primary" for="my-file-selector">
-            <input id="my-file-selector" type="file" (change)="onFileSelect($event)" style="display:none;">
-            Browse
+          <input id="my-file-selector" type="file" (change)="onFileSelect($event)" style="display:none;">
+          Browse
         </label>
-       
-        <!-- <button type="button" (click)="onUpload()"></button> -->
       </div>
 
       <div class="col-md-10 text-center">
-          <form (ngSubmit)="addvideo(vf,genre,stars,stat)" #vf="ngForm">
-              <div class="form-group row">
-                  <label for="title" class="col-sm-4 col-form-label">Title</label>
-                  <div class="col-sm-8">
-                    <input name="title" type="text" class="form-control" id="title"
-                    ngModel
-                    required
-                    #title="ngModel">
-                  </div>
+        <form (ngSubmit)="addvideo(vf,genre,stars,stat)" #vf="ngForm">
+          <div class="form-group row">
+            <label for="title" class="col-sm-4 col-form-label">Title</label>
+            <div class="col-sm-8">
+              <input name="title" type="text" class="form-control" id="title" ngModel required #title="ngModel">
+            </div>
 
-                </div>
-                <div class="form-group row">
-                    <label for="title" class="col-sm-4 col-form-label">Running Time</label>
-                    <div class="col-sm-8">
-                      <input name="runtime" type="text" class="form-control" id="title"
-                      ngModel
-                      required 
-                      #runtime="ngModel">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                      <label for="genreSelect" class="col-sm-4 col-form-label">Genre</label>
-                      <div class="col-sm-8">
-                          <select #genre class="form-control" id="genreSelect">
-                              <option>Drama</option>
-                              <option>Comedy</option>
-                              <option>Thriller</option>
-                              <option>Animation</option>
+          </div>
+          <div class="form-group row">
+            <label for="title" class="col-sm-4 col-form-label">Running Time</label>
+            <div class="col-sm-8">
+              <input name="runtime" type="text" class="form-control" id="title" ngModel required #runtime="ngModel">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="genreSelect" class="col-sm-4 col-form-label">Genre</label>
+            <div class="col-sm-8">
+              <select #genre class="form-control" id="genreSelect">
+                <option *ngFor="let i=index of category">{{category[i]}}</option>
 
-                            </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="starselect" class="col-sm-4 col-form-label">Rating</label>
-                        <div class="col-sm-8">
-                            <select #stars class="form-control" id="starselect">
-                                <option>1 star</option>
-                                <option>2 star</option>
-                                <option>3 star</option>
-                                <option>4 star</option>
-                                <option>5 star</option>
-                              </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="director" class="col-sm-4 col-form-label">Director</label>
-                          <div class="col-sm-8">
-                              <input name="director" type="text" class="form-control" id="director"
-                              ngModel 
-                              required
-                              #dir="ngModel">
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="starselect" class="col-sm-4 col-form-label">Rating</label>
+            <div class="col-sm-8">
+              <select #stars class="form-control" id="starselect">
+                <option *ngFor="let i=index of starsRating">{{starsRating[i]}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="director" class="col-sm-4 col-form-label">Director</label>
+            <div class="col-sm-8">
+              <input name="director" type="text" class="form-control" id="director" ngModel required #dir="ngModel">
 
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="availSelect" class="col-sm-4 col-form-label">Status</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" id="availSelect" 
-                                #stat>
-                                    <option >Avialable</option>
-                                    <option >Unavailable</option>
-      
-                                  </select>
-                            </div>
-                          </div>
-                          <button [routerLink]="['/videolist']" class="btn btn-primary mr-3 px-5">Back</button><span></span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="availSelect" class="col-sm-4 col-form-label">Status</label>
+            <div class="col-sm-8">
+              <select class="form-control" id="availSelect" #stat>
+                <option>Avialable</option>
+                <option>Unavailable</option>
 
-                          <button type="submit" class="btn btn-primary px-4">Add video</button>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary px-4 float-right">Add video</button>
+        </form>
 
-            </form>
+        <button [routerLink]="['/videolist']" class="btn btn-primary mr-3 float-right px-5">Back</button>
 
       </div>
     </div>
-  <div class="col-md-2"></div>
-</div>
+    <div class="col-md-2"></div>
+  </div>

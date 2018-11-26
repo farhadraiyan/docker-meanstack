@@ -16,9 +16,12 @@ export class AddVideoComponent implements OnInit {
   videos: Videos[]=[];
   defImgUrl: string = "../../../../assets/default.png";//this default image url
   fileName = "default.png";
+  starsRating=["1 star","2 star","3 star","4 star","5 star"]
+  category=["Action","Thriller","Comedy","Romantic","Crime Triller", "Animation"]
   constructor(private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
+
 
   }
   onFileSelect(event) {

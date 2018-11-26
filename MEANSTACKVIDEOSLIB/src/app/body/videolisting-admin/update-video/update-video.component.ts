@@ -12,6 +12,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./update-video.component.css']
 })
 export class UpdateVideoComponent implements OnInit {
+  starsRating=["1 star","2 star","3 star","4 star","5 star"]
+  category=["Action","Thriller","Comedy","Romantic","Crime Triller", "Animation"]
   selctedFile: File = null;
   indexparm=this.route.snapshot.params['index'];
   videos: Videos[];

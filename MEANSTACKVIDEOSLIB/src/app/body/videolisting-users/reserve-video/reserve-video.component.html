@@ -38,7 +38,7 @@
       <div class="col-md-4">Customer: </div>
       <div class="col-md-8" >
           <select class="selectpicker" #customerName > 
-                <option *ngFor="let c of customers;let i=index">{{c.firstName}} {{c.firstName}}</option>
+                <option *ngFor="let c of customers">{{c.firstName}} {{c.lastName}}</option>
             </select>
 
       </div>
