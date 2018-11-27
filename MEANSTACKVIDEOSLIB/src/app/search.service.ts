@@ -26,7 +26,7 @@ export class SearchService {
   {
     let custs2:Customer[]=[];
     for (let i = 0; i < customers.length; i++) {
-      if (customers[i].firstName.startsWith(event.target.value)) {
+      if (customers[i].firstName.toLowerCase().startsWith(event.target.value.toLowerCase())) {
         custs2.push(customers[i]);
       }
     }

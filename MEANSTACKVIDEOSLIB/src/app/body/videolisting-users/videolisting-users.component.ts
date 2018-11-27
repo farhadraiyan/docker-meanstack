@@ -24,7 +24,7 @@ export class VideolistingUsersComponent implements OnInit {
   }
 
   filteredVideos(event: any) {
-    this.videos2 = [];//for every keypress assign empty array and  then update in for loop
+    // this.videos2 = [];//for every keypress assign empty array and  then update in for loop
     //calling the filteredVideos from search service
     this.videos2=this.searchserv.filteredVideos(event,this.videos);
   }

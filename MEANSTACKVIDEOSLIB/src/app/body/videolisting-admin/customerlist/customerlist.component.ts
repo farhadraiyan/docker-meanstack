@@ -29,7 +29,7 @@ this.router.navigate(['/videolist']);
 
   filteredVideos(event:any)
   {
-    this.customers2=[];
+    // this.customers2=[];
       this.customers2=this.search.filterCustomers(event,this.customers);
   }
 
