@@ -11,7 +11,7 @@
     <div class="col-md-3"></div> 
     <div class="col-md-6">
       <div class="input-group">
-        <input class="form-control border-right-0 border" type="search" placeholder="search" id="example-search-input">
+        <input class="form-control border-right-0 border" (keyup)="filteredVideos($event)" type="search" placeholder="search" id="example-search-input">
         <span class="input-group-append">
           <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
         </span>
@@ -36,9 +36,9 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <tbody *ngFor="let customer of customers; let i=index">
+            <tbody *ngFor="let customer of customers2; let i=index">
               <tr>
-                <td>{{ customers.length}}</td>
+                <td>{{ customer.firstName}}</td>
                 <td>{{ customer.lastName}}</td>
                 <td>{{ customer.address}}</td>
                 <td>{{ customer.city}}</td>

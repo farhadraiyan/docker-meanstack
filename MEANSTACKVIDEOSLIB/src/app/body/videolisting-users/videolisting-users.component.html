@@ -39,9 +39,7 @@
             <td>{{ vid.director}}</td>
             <td>{{ vid.status}}</td>
             <td><button [routerLink]="['/reserve/'+i]" class="btn btn-primary" [ngClass]="{ hidden: vid.status=='Unavailable'}">Reserve</button></td>
-
           </tr>
-  
         </tbody>
       </table>
     </div>
