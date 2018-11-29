@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Videos } from './body/videolisting-users/videos.model';
+import { Videos } from '../body/videolisting-users/videos.model';
 import 'rxjs/add/operator/map';
 import { Http, Headers } from '@angular/http';
 @Injectable({

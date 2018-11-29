@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Videos } from './videos.model';
-import { VideolistServiceService } from '../../videolist-service.service';
-import {SearchService} from '../../search.service';
+import { VideolistServiceService } from '../../Services/videolist-service.service';
+import {SearchService} from '../../Services/search.service';
 @Component({
   selector: 'app-videolisting-users',
   templateUrl: './videolisting-users.component.html',

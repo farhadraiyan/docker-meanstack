@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VideolistServiceService } from '../../../videolist-service.service';
+import { VideolistServiceService } from '../../../Services/videolist-service.service';
 import { Videos } from '../videos.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -16,6 +16,7 @@ export class ReserveVideoComponent implements OnInit {
   imgpath = "../../../../assets/";
   videotobeReserved:Videos={title:"",runtime:"",genre:"",rating:"",director:"",status:"",imgPath:""};//assigning this default object to avoid error in life cyle hook
   indexparm = this.route.snapshot.params['index'];
+  clicked=false;
 
   customers:Customer[];
   constructor(private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService,private customerService:CustomerServiceService) {
@@ -49,6 +50,7 @@ export class ReserveVideoComponent implements OnInit {
 
     this.videoservice.reserveVideo(id)
     .subscribe();
+    this.clicked=true;
 
   }
 

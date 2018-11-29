@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import {CookieService} from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Admin } from './admin.model';
-import { AdminService } from 'src/app/admin.service';
+import { AdminService } from 'src/app/Services/admin.service';
 
 @Component({
   selector: 'app-adminlogin',

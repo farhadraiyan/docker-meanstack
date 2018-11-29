@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Admin } from './body/adminlogin/admin.model';
+import { Admin } from '../body/adminlogin/admin.model';
 import 'rxjs/add/operator/map';
 import { Http, Headers } from '@angular/http';
 

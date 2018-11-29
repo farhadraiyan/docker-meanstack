@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Videos } from './body/videolisting-users/videos.model';
-import { Customer } from './body/videolisting-admin/customerlist/customer.model';
+import { Videos } from '../body/videolisting-users/videos.model';
+import { Customer } from '../body/videolisting-admin/customerlist/customer.model';
 
 @Injectable({
   providedIn: 'root'

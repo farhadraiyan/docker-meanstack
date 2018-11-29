@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { VideolistServiceService } from '../../../videolist-service.service';
+import { VideolistServiceService } from '../../../Services/videolist-service.service';
 import { NgForm } from '@angular/forms';
 import { Videos } from '../../videolisting-users/videos.model';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-video',
@@ -18,9 +19,15 @@ export class AddVideoComponent implements OnInit {
   fileName = "default.png";
   starsRating=["1 star","2 star","3 star","4 star","5 star"]
   category=["Action","Thriller","Comedy","Romantic","Crime Triller", "Animation"]
-  constructor(private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
+  fieldVal=false;
+  constructor(private cookieservice:CookieService, private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
+
+        //checking user login status if not logged in redirect
+        if (this.cookieservice.get("login") == "") {
+          this.router.navigate(['']);
+        }
 
 
   }
@@ -29,6 +36,8 @@ export class AddVideoComponent implements OnInit {
     this.fileName = this.selctedFile.name;//assign filename on user selct
   }
   addvideo(form: NgForm, gen, star, stat) {
+
+
     const newVideo={
       title:form.value.title,
       runtime: form.value.runtime,
@@ -38,12 +47,23 @@ export class AddVideoComponent implements OnInit {
       status:stat.value,
       imgPath:this.fileName
     }
+    if(newVideo.title=="" || newVideo.director=="" || newVideo.genre=="" || newVideo.rating== "" || newVideo.status == "" )
+    {
+      this.fieldVal=true;
+
+    }
+    else{
       this.videoservice.addVideo(newVideo)
       .subscribe(vids=>{
         this.videos.push(vids)
       })
       
       this.router.navigate(['/videolist']);
+
+    }
+
+
+
 
   }
 

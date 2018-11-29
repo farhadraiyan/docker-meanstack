@@ -17,7 +17,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { CustomerlistComponent } from './body/videolisting-admin/customerlist/customerlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
-import { VideolistServiceService } from './videolist-service.service';
+import { VideolistServiceService } from './Services/videolist-service.service';
 import { CustomerServiceService } from './body/videolisting-admin/customerlist/customer-service.service';
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
