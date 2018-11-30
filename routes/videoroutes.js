@@ -8,12 +8,7 @@ router.get('/videolist', (req, res, next) => {
         res.json(videos);
     })
 });
-//for login
-router.get('/login', (req, res, next) => {
-    Admin.find(function (err, admins) {
-        res.json(admins);
-    })
-});
+
 
 //add contact
 
