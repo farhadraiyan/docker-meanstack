@@ -6,15 +6,15 @@ import { Customer } from '../body/videolisting-admin/customerlist/customer.model
   providedIn: 'root'
 })
 export class SearchService {
-  
+
 
   constructor() { }
-  filteredVideos(event: any, videos:Videos[]) {
+  filteredVideos(event: any, videos: Videos[]) {
 
-    let videos2:Videos[]=[];
+    let videos2: Videos[] = [];
     // this.videos=this.videos.splice(0,4)
     for (let i = 0; i < videos.length; i++) {
-      if (videos[i].title.startsWith(event.target.value)) {
+      if (videos[i].title.toLowerCase().startsWith(event.target.value.toLowerCase())) {
         videos2.push(videos[i]);
       }
     }
@@ -22,9 +22,8 @@ export class SearchService {
     // console.log(this.videos2.length)
 
   }
-  filterCustomers(event:any,customers:Customer[])
-  {
-    let custs2:Customer[]=[];
+  filterCustomers(event: any, customers: Customer[]) {
+    let custs2: Customer[] = [];
     for (let i = 0; i < customers.length; i++) {
       if (customers[i].firstName.toLowerCase().startsWith(event.target.value.toLowerCase())) {
         custs2.push(customers[i]);
