@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Videos } from '../../videolisting-users/videos.model';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { CategoryandratingService } from 'src/app/Services/categoryandrating.service';
 
 @Component({
   selector: 'app-add-video',
@@ -17,12 +18,16 @@ export class AddVideoComponent implements OnInit {
   videos: Videos[]=[];
   defImgUrl: string = "../../../../assets/default.png";//this default image url
   fileName = "default.png";
-  starsRating=["1 star","2 star","3 star","4 star","5 star"]
-  category=["Action","Thriller","Comedy","Romantic","Crime Triller", "Animation"]
+  starsRating:String[];
+  category:String[];
   fieldVal=false;
-  constructor(private cookieservice:CookieService, private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
+  constructor(private category_rating_serv:CategoryandratingService, private cookieservice:CookieService, private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
+    this.category_rating_serv.category.subscribe((cat_ratings)=>{
+      this.category=cat_ratings[0];
+      this.starsRating=cat_ratings[1];
+    })
 
         //checking user login status if not logged in redirect
         if (this.cookieservice.get("login") == "") {
