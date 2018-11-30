@@ -9,10 +9,10 @@ const app=express();
 app.use(cors());
 const route=require("./routes/route");
 //connect to mongodb
-mongoose.connect("mongodb://localhost:27017/videoLibrary")
+mongoose.connect("mongodb://FarhadHossain:Ekhane1987@ds121834.mlab.com:21834/videolibrary")
 //on connection
 mongoose.connection.on('connected',()=>{
-    console.log("connected to database at 27017");
+    console.log("connected to database");
 })
 //if error
 mongoose.connection.on('error', (err)=>{

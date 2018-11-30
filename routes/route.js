@@ -74,24 +74,12 @@ router.put("/updatevideo/:id", (req, res, next) => {
         status: req.body.status,
         imgPath: req.body.imgPath,
     });
-    Video.updateOne({ _id: req.params.id },newVideo,{} ,(err, video) => {
+    Video.findOneAndUpdate({ _id: req.params.id },newVideo, {"new": true} ,(err, video) => {
         if (err) {
             res.send(err)
         }
         res.send(video)
-        // else {
-        //     result.title = req.body.title;
-        //     result.runtime = req.body.runtime,
-        //     result.genre = req.body.genre,
-        //     result.rating = req.body.rating,
-        //     result.director = req.body.director,
-        //     result.status = req.body.status,
-        //     result.imgPath = req.body.imgPath
-        //     result.save();
-        //     res.json(result)
 
-
-        // }
     });
 });
 

@@ -17,11 +17,12 @@ export class UpdateVideoComponent implements OnInit {
   selctedFile: File = null;
   indexparm = this.route.snapshot.params['index'];
   videos: Videos[];
-
-  fileName = "default.png";//to avoid error initialize defalut value
+  fileName: String;//to avoid error initialize defalut value
   imgpath = "../../../../assets/";
-  defImgPath = this.imgpath + this.fileName;
+  defImgPath: String;
   videotobeEdited: Videos = { title: "", runtime: "", genre: "", rating: "", director: "", status: "", imgPath: "" };//assigning this default object to avoid error in life cyle hook
+
+
   constructor(private cookieservice: CookieService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
@@ -43,6 +44,14 @@ export class UpdateVideoComponent implements OnInit {
         }
 
       })
+    //assigning image path
+    if (this.videotobeEdited.imgPath == "") {
+      this.fileName = "default.png";
+    }
+    else {
+      this.fileName = this.videotobeEdited.imgPath;
+    }
+    this.defImgPath = this.imgpath + this.fileName;
 
   }
   onFileSelect(event) {
@@ -50,17 +59,20 @@ export class UpdateVideoComponent implements OnInit {
     this.fileName = this.selctedFile.name;//assign filename on user selct
   }
   updateVideo(form: NgForm, gen, star, stat, id) {
-    this.defImgPath = this.fileName;
     let updatedVid = {
       _id: id, title: form.value.title, runtime: form.value.runtime, genre: gen.value,
-      rating: star.value, director: form.value.director, status: stat.value, imgPath: this.defImgPath
+      rating: star.value, director: form.value.director, status: stat.value, imgPath: this.fileName
     };
     this.videoservice.updateVideo(updatedVid)
-      .subscribe(data => this.videos[this.indexparm] = data);
+      .subscribe(data => {
+        console.log(data);
+        this.videos[this.indexparm] = data
+        this.router.navigate(['/videolist']);
+      });
 
     // this.videoservice.getVideolist()
     // .subscribe(vids=>this.videos = vids)
-    this.router.navigate(['/videolist']);
+
 
   }
 

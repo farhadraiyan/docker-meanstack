@@ -56,9 +56,10 @@ export class AddVideoComponent implements OnInit {
       this.videoservice.addVideo(newVideo)
       .subscribe(vids=>{
         this.videos.push(vids)
+        this.router.navigate(['/videolist']);
       })
       
-      this.router.navigate(['/videolist']);
+      
 
     }
 
