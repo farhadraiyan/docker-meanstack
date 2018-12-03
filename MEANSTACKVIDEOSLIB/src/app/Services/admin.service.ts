@@ -16,4 +16,11 @@ export class AdminService {
       .map(res => res.json());
 
   }
+  addAdmin(admin) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post("http://localhost:3000/register", admin, { headers: headers })
+      .map(res => res.json());
+  }
+  
 }

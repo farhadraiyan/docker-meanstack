@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { VideolistServiceService } from './Services/videolist-service.service';
 import { CustomerService } from './Services/customer.service';
+import { RegisterComponent } from './body/adminlogin/register/register.component';
+
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
 {path:'reserve/:index', component:ReserveVideoComponent},
@@ -26,7 +28,8 @@ const appRoutes:Routes=[
 {path:'videolist', component:VideolistingAdminComponent},
 {path:'customers', component:CustomerlistComponent},
 {path:'addvideo', component:AddVideoComponent},
-{path:'updatevideo/:index', component:UpdateVideoComponent}
+{path:'updatevideo/:index', component:UpdateVideoComponent},
+{path:'register', component:RegisterComponent}
 ];
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ const appRoutes:Routes=[
     VideolistingUsersComponent,
     ReserveVideoComponent,
     CustomerlistComponent,
+    RegisterComponent,
     
   ],
   imports: [

@@ -13,8 +13,8 @@ import { CategoryandratingService } from 'src/app/Services/categoryandrating.ser
   styleUrls: ['./update-video.component.css']
 })
 export class UpdateVideoComponent implements OnInit {
-  starsRating:String[];
-  category:String[];
+  starsRating: String[];
+  category: String[];
   selctedFile: File = null;
   indexparm = this.route.snapshot.params['index'];
   videos: Videos[];
@@ -24,15 +24,14 @@ export class UpdateVideoComponent implements OnInit {
   videotobeEdited: Videos = { title: "", runtime: "", genre: "", rating: "", director: "", status: "", imgPath: "" };//assigning this default object to avoid error in life cyle hook
 
 
-  constructor(private Cate_rating_serv:CategoryandratingService, private cookieservice: CookieService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService) { }
+  constructor(private Cate_rating_serv: CategoryandratingService, private cookieservice: CookieService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
 
-this.Cate_rating_serv.category.subscribe((cat_ratings)=>
-{
-  this.category=cat_ratings[0]
-  this.starsRating=cat_ratings[1]
-})
+    this.Cate_rating_serv.category.subscribe((cat_ratings) => {
+      this.category = cat_ratings[0]
+      this.starsRating = cat_ratings[1]
+    })
 
     //checking user login status if not logged in redirect
     if (this.cookieservice.get("login") == "") {
