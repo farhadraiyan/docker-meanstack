@@ -20,7 +20,7 @@ export class AddVideoComponent implements OnInit {
   fileName = "default.png";
   starsRating:String[];
   category:String[];
-  fieldVal=false;
+  emptyField=false;
   constructor(private category_rating_serv:CategoryandratingService, private cookieservice:CookieService, private router:Router, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
   ngOnInit() {
@@ -54,7 +54,7 @@ export class AddVideoComponent implements OnInit {
     }
     if(newVideo.title=="" || newVideo.director=="" || newVideo.genre=="" || newVideo.rating== "" || newVideo.status == "" )
     {
-      this.fieldVal=true;
+      this.emptyField=true;
 
     }
     else{

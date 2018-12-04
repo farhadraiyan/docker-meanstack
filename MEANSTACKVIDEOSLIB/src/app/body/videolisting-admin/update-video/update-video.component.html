@@ -1,4 +1,4 @@
-<div class="row m-5">
+<div class="row my-3">
   <div class="col-md-2">
 
   </div>
@@ -6,6 +6,7 @@
     <div class="row py-2 head">
       <div class="col-md-12 text-center">
         <h2>Update Video</h2>
+        <p class="text-danger text-center" *ngIf="emptyField"><b > Field cannot be empty </b></p>
       </div>
     </div>
     <div class="row py-5">
@@ -19,28 +20,32 @@
         <!-- <button type="button" (click)="onUpload()"></button> -->
       </div>
       <div class="col-md-10 text-center">
-        <form (ngSubmit)="updateVideo(uf,localstarsgen,localstars,localstat,videotobeEdited._id)" #uf="ngForm">
+        <form (ngSubmit)="updateVideo(title,dir,runtime,localstarsgen,localstars,localstat,videotobeEdited._id)" #uf="ngForm">
           <div class="form-group row">
             <label for="title" class="col-sm-4 col-form-label">Title</label>
             <div class="col-sm-8">
               <input [value]="videotobeEdited.title" name="title" type="text" class="form-control" id="title"
-                [(ngModel)]="title" required>
+              #title
+              ngModel   
+              required>
             </div>
 
           </div>
           <div class="form-group row">
             <label for="title" class="col-sm-4 col-form-label">Running Time</label>
             <div class="col-sm-8">
-              <input [value]="videotobeEdited.runtime" name="runtime" type="text" class="form-control" id="title"
-                [(ngModel)]="runtime" required>
+              <input [value]="videotobeEdited.runtime"  name="runtime" type="text" class="form-control" id="title"
+              #runtime
+              ngModel  
+              required>
             </div>
           </div>
           <div class="form-group row">
             <label for="genreSelect" class="col-sm-4 col-form-label">Genre</label>
             <div class="col-sm-8">
-              <select [(ngModel)]="gen" #localstarsgen name="gen" class="form-control" id="genreSelect">
+              <select #localstarsgen name="gen" class="form-control" id="genreSelect">
+                  <option selected>{{videotobeEdited.genre}}</option>
                 <option *ngFor="let i=index of category">{{category[i]}}</option>
-
 
               </select>
             </div>
@@ -48,7 +53,8 @@
           <div class="form-group row">
             <label for="starselect" class="col-sm-4 col-form-label">Rating</label>
             <div class="col-sm-8">
-              <select [(ngModel)]="stars" name="stars" #localstars class="form-control" id="starselect">
+              <select name="stars" #localstars class="form-control" id="starselect">
+                <option selected>{{videotobeEdited.rating}}</option>
                 <option *ngFor="let i=index of starsRating">{{starsRating[i]}}</option>
 
               </select>
@@ -58,14 +64,17 @@
             <label for="director" class="col-sm-4 col-form-label">Director</label>
             <div class="col-sm-8">
               <input [value]="videotobeEdited.director" name="director" type="text" class="form-control" id="director"
-                [(ngModel)]="director" required>
+              #dir
+              ngModel  
+              required>
 
             </div>
           </div>
           <div class="form-group row">
             <label for="availSelect" class="col-sm-4 col-form-label">Status</label>
             <div class="col-sm-8">
-              <select class="form-control" id="availSelect" [(ngModel)]="status" #localstat name="status">
+              <select class="form-control" id="availSelect" #localstat name="status">
+                <option selected>{{videotobeEdited.status}}</option>
                 <option>Avialable</option>
                 <option>Unavailable</option>
 
@@ -81,3 +90,6 @@
   </div>
   <div class="col-md-2"></div>
 </div>
+<div class="row my-5">
+    <div class="col-md-12"></div>
+  </div>

@@ -22,7 +22,7 @@ export class UpdateVideoComponent implements OnInit {
   imgpath = "../../../../assets/";
   defImgPath: String;
   videotobeEdited: Videos = { title: "", runtime: "", genre: "", rating: "", director: "", status: "", imgPath: "" };//assigning this default object to avoid error in life cyle hook
-
+  emptyField=false;
 
   constructor(private Cate_rating_serv: CategoryandratingService, private cookieservice: CookieService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private videoservice: VideolistServiceService) { }
 
@@ -45,7 +45,9 @@ export class UpdateVideoComponent implements OnInit {
           if (this.indexparm == i) {
             this.videotobeEdited = this.videos[i];
             this.fileName = this.videotobeEdited.imgPath;
+
             console.log(this.videotobeEdited.imgPath);
+
           }
         }
 
@@ -60,26 +62,44 @@ export class UpdateVideoComponent implements OnInit {
     this.defImgPath = this.imgpath + this.fileName;
 
   }
+
+
   onFileSelect(event) {
     this.selctedFile = <File>event.target.files[0];
     this.fileName = this.selctedFile.name;//assign filename on user selct
   }
-  updateVideo(form: NgForm, gen, star, stat, id) {
-    let updatedVid = {
-      _id: id, title: form.value.title, runtime: form.value.runtime, genre: gen.value,
-      rating: star.value, director: form.value.director, status: stat.value, imgPath: this.fileName
-    };
-    this.videoservice.updateVideo(updatedVid)
-      .subscribe(data => {
-        console.log(data);
-        this.videos[this.indexparm] = data
-        this.router.navigate(['/videolist']);
-      });
-
-    // this.videoservice.getVideolist()
-    // .subscribe(vids=>this.videos = vids)
 
 
+  updateVideo(title, director, run,gen, star, stat, id) {
+
+    if(this.isEmpty(title.value, director.value, run.value,gen.value, star.value, stat.value))
+    {
+      this.emptyField=true;
+
+    }
+    else{
+      let updatedVid = {
+        _id: id, title: title.value, runtime: run.value, genre: gen.value,
+        rating: star.value, director: director.value, status: stat.value, imgPath: this.fileName
+      };
+      this.videoservice.updateVideo(updatedVid)
+        .subscribe(data => {
+          console.log(updatedVid);
+          this.videos[this.indexparm] = data
+          this.router.navigate(['/videolist']);
+        });
+
+    }
+
+
+  }
+  isEmpty(t,d,r,g,sr,st):boolean{
+    if(t=="" || d=="" || r=="" || g=="" || sr=="" ||st=="")
+    {
+      return true;
+    }
+
+    return false;
   }
 
 }

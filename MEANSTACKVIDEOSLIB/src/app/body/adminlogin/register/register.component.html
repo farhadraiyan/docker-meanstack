@@ -6,9 +6,12 @@
   </div>
 
 <div class="row">
-  <div class="col-md-12 text-center text-danger">
-    <p *ngIf="showMsg">Field cannot be empty </p>
+  <div class="col-md-12 text-center">
+    <p class="text-danger" *ngIf="showMsg">Field cannot be empty </p>
+    <p class="text-success" *ngIf="success">You have registered successfully, <a [routerLink]="['/login']">login</a></p>
+    <p class="text-warning" *ngIf="userExist">User already exist</p>
   </div>
+
 </div>
 
   <div class="row mt-3">
