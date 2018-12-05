@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Video = require('../models/Videos');
 const Admin = require("../models/Admin");
+
 //retrieve
 router.get('/videolist', (req, res, next) => {
     Video.find(function (err, videos) {
@@ -10,9 +11,31 @@ router.get('/videolist', (req, res, next) => {
 });
 
 
-//add contact
 
-router.post('/addvideo', (req, res, next) => {
+const multer=require('multer');
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'MEANSTACKVIDEOSLIB/src/assets/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+  })
+  
+  var upload = multer({ storage: storage }).single("photo") 
+
+router.post('/upload', function (req, res)
+{
+    upload(req,res,function(err){
+
+        console.log(req.file)
+
+    })
+
+})
+//add video
+router.post('/addvideo',(req, res, next) => {
     let newVideo = new Video({
         title: req.body.title,
         runtime: req.body.runtime,
@@ -20,8 +43,9 @@ router.post('/addvideo', (req, res, next) => {
         rating: req.body.rating,
         director: req.body.director,
         status: req.body.status,
-        imgPath: req.body.imgPath,
+        imgPath: req.body.imgPath
     });
+    
     newVideo.save((err, video) => {
         if (err) {
             res.json({ msg: "contact not saved" })

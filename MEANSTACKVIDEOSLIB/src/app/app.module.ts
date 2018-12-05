@@ -20,6 +20,8 @@ import {HttpModule} from '@angular/http';
 import { VideolistServiceService } from './Services/videolist-service.service';
 import { CustomerService } from './Services/customer.service';
 import { RegisterComponent } from './body/adminlogin/register/register.component';
+import { AddCustomerComponent } from './body/videolisting-admin/customerlist/add-customer/add-customer.component';
+import { UpdateCustomerComponent } from './body/videolisting-admin/customerlist/update-customer/update-customer.component';
 
 const appRoutes:Routes=[
 {path:'', component:BodyComponent},
@@ -29,7 +31,10 @@ const appRoutes:Routes=[
 {path:'customers', component:CustomerlistComponent},
 {path:'addvideo', component:AddVideoComponent},
 {path:'updatevideo/:index', component:UpdateVideoComponent},
-{path:'register', component:RegisterComponent}
+{path:'register', component:RegisterComponent},
+{path: 'addcustomer', component:AddCustomerComponent},
+{path: 'updatecustomer', component:UpdateCustomerComponent},
+
 ];
 @NgModule({
   declarations: [
@@ -45,6 +50,8 @@ const appRoutes:Routes=[
     ReserveVideoComponent,
     CustomerlistComponent,
     RegisterComponent,
+    AddCustomerComponent,
+    UpdateCustomerComponent,
     
   ],
   imports: [

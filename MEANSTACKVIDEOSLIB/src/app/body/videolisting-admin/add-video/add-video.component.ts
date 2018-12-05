@@ -33,16 +33,20 @@ export class AddVideoComponent implements OnInit {
         if (this.cookieservice.get("login") == "") {
           this.router.navigate(['']);
         }
-
-
   }
   onFileSelect(event) {
     this.selctedFile = <File>event.target.files[0];
     this.fileName = this.selctedFile.name;//assign filename on user selct
   }
+  addPhoto()
+  {
+    //uploading image is working independtly , i am not creating a extra collections for img object 
+    this.videoservice.addPhoto(this.selctedFile)
+    .subscribe(res=>console.log(res))
+    
+
+  }
   addvideo(form: NgForm, gen, star, stat) {
-
-
     const newVideo={
       title:form.value.title,
       runtime: form.value.runtime,
@@ -63,13 +67,8 @@ export class AddVideoComponent implements OnInit {
         this.videos.push(vids)
         this.router.navigate(['/videolist']);
       })
-      
-      
 
     }
-
-
-
 
   }
 

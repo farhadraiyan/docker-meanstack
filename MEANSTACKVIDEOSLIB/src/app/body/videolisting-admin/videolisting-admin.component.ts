@@ -14,10 +14,11 @@ import { SearchService } from 'src/app/Services/search.service';
 })
 export class VideolistingAdminComponent implements OnInit {
   videos: Videos[];
-  imgPath = "../../../../assets/";
-  videos2:Videos[];
+  //here its always good to use absolute path to avoid error
+  imgPath = "src/assets/";
+  videos2: Videos[];
 
-  constructor(private searchservice:SearchService, private cookieservice: CookieService, private videoService: VideolistServiceService, private router: Router) { }
+  constructor(private searchservice: SearchService, private cookieservice: CookieService, private videoService: VideolistServiceService, private router: Router) { }
 
   ngOnInit() {
     //checking user login status if not logged in redirect
@@ -29,7 +30,7 @@ export class VideolistingAdminComponent implements OnInit {
     this.videoService.getVideolist()
       .subscribe((vids) => {
         this.videos = vids;
-        this.videos2=this.videos;
+        this.videos2 = this.videos;
       })
 
 
@@ -46,10 +47,9 @@ export class VideolistingAdminComponent implements OnInit {
     this.videos.splice(index, 1);
 
   }
-  
-  filterVideos(event:any)
-  {
-    this.videos2=this.searchservice.filteredVideos(event,this.videos);
+
+  filterVideos(event: any) {
+    this.videos2 = this.searchservice.filteredVideos(event, this.videos);
   }
 
 }
