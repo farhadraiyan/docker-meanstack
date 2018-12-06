@@ -25,29 +25,29 @@ this.custserv.getCustomers()
 
   }
 
-  updateCustomer(form:NgForm,id)
+  updateCustomer(fn,ln,addr,city,phone,stat,id)
   {
-    console.log("f"+form.value.fn)
-    if(form.value.fn==""||form.value.ln==""||form.value.addr==""||form.value.city==""||form.value.phone==""||form.value.stat=="")
+    if(fn.value==""||ln.value==""||addr.value==""||city.value==""||phone.value==""||stat.value=="")
     {
 this.emptyField=true;
     }
     else{
       const newcustomer={
         _id:id,
-        firstName: form.value.fn,
-        lastName: form.value.ln,
-        address: form.value.addr,
-        city: form.value.city,
-        phone: form.value.phone,
-        status: form.value.stat
+        firstName: fn.value,
+        lastName: ln.value,
+        address: addr.value,
+        city: city.value,
+        phone: phone.value,
+        status: stat.value
       }
 
       this.custserv.updateCustomer(newcustomer)
       .subscribe((res)=>{
+        this.emptyField=false;
+        this.router.navigate(["/customers"])
       })
 
-      this.emptyField=false;
 
 
     }
