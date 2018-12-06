@@ -33,7 +33,7 @@ const appRoutes:Routes=[
 {path:'updatevideo/:index', component:UpdateVideoComponent},
 {path:'register', component:RegisterComponent},
 {path: 'addcustomer', component:AddCustomerComponent},
-{path: 'updatecustomer', component:UpdateCustomerComponent},
+{path: 'updatecustomer/:index', component:UpdateCustomerComponent},
 
 ];
 @NgModule({

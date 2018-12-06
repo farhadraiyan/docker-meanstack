@@ -1,3 +1,89 @@
-<p>
-  update-customer works!
-</p>
+<div class="row my-3">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8" id="addVidSection">
+        <div class="row py-2 head">
+            <div class="col-md-12 text-center">
+                <h2 class="text-center my-2">Add Video</h2>
+            </div>
+          </div>
+      <div class="row">
+        <div class="col-md-12 text-center text-danger">
+            <p class="text-danger text-center" *ngIf="emptyField"><b > Field cannot be empty </b></p>
+  
+          <!-- <span *ngIf="!firstName.valid && title.touched"> First Name is required </span>
+          <span *ngIf="!runtime.valid && runtime.touched">Last Name is required </span> -->
+        </div>
+      </div>
+  
+      <div class="row p-5">
+  
+        <div class="col-md-10 ">
+          <form (ngSubmit)="updateCustomer(cf, customerToBeEdited._id)" #cf="ngForm">
+            <div class="form-group row">
+              <label for="fn" class="col-sm-4 col-form-label">First Name</label>
+              <div class="col-sm-8">
+                <input [value]="customerToBeEdited.firstName" name="fn" type="text" class="form-control" id="fn" ngModel required >
+              </div>
+  
+            </div>
+  
+            <div class="form-group row">
+              <label for="ln" class="col-sm-4 col-form-label">Last Name</label>
+              <div class="col-sm-8">
+                <input [value]="customerToBeEdited.lastName" name="ln" type="text" class="form-control" id="ln" ngModel required >
+              </div>
+  
+            </div>
+  
+  
+            <div class="form-group row">
+              <label for="addr" class="col-sm-4 col-form-label">Address</label>
+              <div class="col-sm-8">
+                <input [value]="customerToBeEdited.address" name="addr" type="text" class="form-control" id="addr" ngModel required>
+              </div>
+  
+            </div>
+  
+            <div class="form-group row">
+              <label for="city" class="col-sm-4 col-form-label">City</label>
+              <div class="col-sm-8">
+                <input [value]="customerToBeEdited.city" name="city" type="text" class="form-control" id="city" ngModel required>
+              </div>
+  
+            </div>
+  
+  
+            <div class="form-group row">
+              <label for="phone" class="col-sm-4 col-form-label">Phone Number</label>
+              <div class="col-sm-8">
+                <input [value]="customerToBeEdited.phone" name="phone" type="text" class="form-control" id="phone" ngModel required>
+              </div>
+  
+            </div>
+  
+  
+            <div class="form-group row">
+              <label for="stat" class="col-sm-4 col-form-label">Status</label>
+              <div class="col-sm-8">
+                <input [value]="customerToBeEdited.status" name="stat" type="text" class="form-control" id="stat" ngModel required>
+              </div>
+  
+            </div>
+  
+  
+  
+  
+            <button type="submit" class="btn btn-primary px-4 float-right">Add Customer</button>
+          </form>
+  
+          <button [routerLink]="['/customers']" class="btn btn-primary mr-3 float-right px-5">Back</button>
+  
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row my-5">
+      <div class="col-md-12"></div>
+    </div>
+    
