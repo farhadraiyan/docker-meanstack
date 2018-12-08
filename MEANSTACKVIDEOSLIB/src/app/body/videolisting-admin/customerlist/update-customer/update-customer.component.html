@@ -4,15 +4,12 @@
   <div class="col-md-8" id="addVidSection">
     <div class="row py-2 head">
       <div class="col-md-12 text-center">
-        <h2 class="text-center my-2">Add Video</h2>
+        <h2 class="text-center my-2">Update Customer</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12 text-center text-danger">
         <p class="text-danger text-center" *ngIf="emptyField"><b> Field cannot be empty </b></p>
-
-        <!-- <span *ngIf="!firstName.valid && title.touched"> First Name is required </span>
-          <span *ngIf="!runtime.valid && runtime.touched">Last Name is required </span> -->
       </div>
     </div>
 
@@ -80,7 +77,7 @@
 
 
 
-          <button type="submit" class="btn btn-primary px-4 float-right">Add Customer</button>
+          <button type="submit" class="btn btn-primary px-4 float-right">Update Customer</button>
         </form>
 
         <button [routerLink]="['/customers']" class="btn btn-primary mr-3 float-right px-5">Back</button>

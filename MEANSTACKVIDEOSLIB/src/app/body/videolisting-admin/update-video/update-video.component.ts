@@ -19,8 +19,8 @@ export class UpdateVideoComponent implements OnInit {
   indexparm = this.route.snapshot.params['index'];
   videos: Videos[];
   fileName: String;//to avoid error initialize defalut value
-  imgpath = "../../../../assets/";
-  defImgPath: String;
+  imgpath = "src/assets/";
+  ImgName: String;
   videotobeEdited: Videos = { title: "", runtime: "", genre: "", rating: "", director: "", status: "", imgPath: "" };//assigning this default object to avoid error in life cyle hook
   emptyField=false;
 
@@ -44,9 +44,7 @@ export class UpdateVideoComponent implements OnInit {
         for (let i = 0; i < this.videos.length; i++) {
           if (this.indexparm == i) {
             this.videotobeEdited = this.videos[i];
-            this.fileName = this.videotobeEdited.imgPath;
-
-            console.log(this.videotobeEdited.imgPath);
+            this.ImgName = this.videotobeEdited.imgPath;
 
           }
         }
@@ -54,12 +52,13 @@ export class UpdateVideoComponent implements OnInit {
       })
     //assigning image path
     if (this.videotobeEdited.imgPath == "") {
-      this.fileName = "default.png";
+      this.ImgName = "default.png";
     }
     else {
-      this.fileName = this.videotobeEdited.imgPath;
+      this.ImgName = this.videotobeEdited.imgPath;
     }
-    this.defImgPath = this.imgpath + this.fileName;
+
+
 
   }
 
@@ -69,6 +68,19 @@ export class UpdateVideoComponent implements OnInit {
     this.fileName = this.selctedFile.name;//assign filename on user selct
   }
 
+  addPhoto()
+  {
+     //this condition to avoid image error when file not selected
+    if(this.selctedFile)
+    {
+    //uploading image is working independtly , i am not creating a extra collections for img object 
+    this.videoservice.addPhoto(this.selctedFile)
+    .subscribe(res=>console.log(res))
+    }
+
+    
+
+  }
 
   updateVideo(title, director, run,gen, star, stat, id) {
 

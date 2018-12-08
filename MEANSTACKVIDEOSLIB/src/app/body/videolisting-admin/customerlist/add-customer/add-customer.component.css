@@ -1,0 +1,10 @@
+#addVidSection
+{
+    background-color: #f2f5f5;
+}
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+.head{
+    background-color: #ddecec;
+}

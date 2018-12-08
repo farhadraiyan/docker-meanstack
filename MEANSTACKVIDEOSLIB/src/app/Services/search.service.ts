@@ -25,7 +25,7 @@ export class SearchService {
   filterCustomers(event: any, customers: Customer[]) {
     let custs2: Customer[] = [];
     for (let i = 0; i < customers.length; i++) {
-      if (customers[i].firstName.toLowerCase().startsWith(event.target.value.toLowerCase())) {
+      if (customers[i].firstName.toLowerCase().startsWith(event.target.value.toLowerCase()) || customers[i].lastName.toLowerCase().startsWith(event.target.value.toLowerCase())) {
         custs2.push(customers[i]);
       }
     }

@@ -11,7 +11,7 @@
     </div>
     <div class="row py-5">
       <div class="col-md-2 text-center">
-        <img [src]="defImgPath" class="mb-3" style="height:100px; width:100px;">
+        <img [src]="imgpath+ImgName" class="mb-3" style="height:100px; width:100px;">
         <label class="btn btn-primary" for="my-file-selector">
           <input id="my-file-selector" type="file" (change)="onFileSelect($event)" style="display:none;">
           Browse
@@ -20,7 +20,7 @@
         <!-- <button type="button" (click)="onUpload()"></button> -->
       </div>
       <div class="col-md-10 text-center">
-        <form (ngSubmit)="updateVideo(title,dir,runtime,localstarsgen,localstars,localstat,videotobeEdited._id)" #uf="ngForm">
+        <form (ngSubmit)="updateVideo(title,dir,runtime,localstarsgen,localstars,localstat,videotobeEdited._id); addPhoto()" #uf="ngForm">
           <div class="form-group row">
             <label for="title" class="col-sm-4 col-form-label">Title</label>
             <div class="col-sm-8">

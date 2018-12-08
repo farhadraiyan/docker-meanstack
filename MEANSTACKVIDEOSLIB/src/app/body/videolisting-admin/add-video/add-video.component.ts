@@ -40,9 +40,14 @@ export class AddVideoComponent implements OnInit {
   }
   addPhoto()
   {
-    //uploading image is working independtly , i am not creating a extra collections for img object 
-    this.videoservice.addPhoto(this.selctedFile)
-    .subscribe(res=>console.log(res))
+ //this condition to avoid image error when file not selected
+    if(this.selctedFile)
+    {
+         //uploading image is working independtly , i am not creating a extra collections for img object 
+      this.videoservice.addPhoto(this.selctedFile)
+      .subscribe(res=>console.log(res))
+    }
+
     
 
   }

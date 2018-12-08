@@ -13,7 +13,6 @@ export class VideolistServiceService {
     //inorder to get the latest version of 'npm i rxjs-compat' otherwise map give error
     return this.http.get("http://localhost:3000/videolist")
       .map(res => res.json());
-
   }
   addVideo(newvideo) {
     var headers = new Headers();
@@ -38,13 +37,10 @@ export class VideolistServiceService {
     return this.http.delete("http://localhost:3000/video/"+id)
     .map(res=>res.json())
   }
-
   updateVideo(video) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.put("http://localhost:3000/updatevideo/" + video._id, video,{ headers: headers })
       .map(res => res.json());
   }
-
 }
-

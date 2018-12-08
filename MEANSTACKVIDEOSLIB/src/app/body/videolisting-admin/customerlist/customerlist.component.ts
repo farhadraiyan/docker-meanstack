@@ -38,11 +38,15 @@ export class CustomerlistComponent implements OnInit {
     this.router.navigate(['/customers']);
   }
   deletecustomer(i, id) {
-    this.customerService.deleteCustomer(id)
-      .subscribe((cust) => {
+    if(confirm("Are you sure?"))
+    {
+      this.customerService.deleteCustomer(id)
+      .subscribe(() => {
         this.customers2.splice(i, 1);
 
       })
+
+    }
 
   }
 

@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnChanges {
   logoutVal=false;
   cookieVal:String;
   ngOnInit() {
+    console.log(this.cookieservice.get("login"))
     this.cookieVal=this.cookieservice.get("login");
     if(this.cookieVal=="")
     {

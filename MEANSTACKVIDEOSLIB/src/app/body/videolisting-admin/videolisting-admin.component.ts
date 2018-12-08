@@ -42,9 +42,13 @@ export class VideolistingAdminComponent implements OnInit {
     this.router.navigate(['/videolist']);
   }
   deleteVideo(index, id) {
-    this.videoService.deleteVideo(id)
+    if(confirm("Are you sure?"))
+    {
+      this.videoService.deleteVideo(id)
       .subscribe()
     this.videos.splice(index, 1);
+    }
+
 
   }
 

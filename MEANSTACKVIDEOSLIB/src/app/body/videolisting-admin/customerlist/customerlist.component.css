@@ -4,20 +4,18 @@
 } */
 #btn2,#btn1{
     width: 25%;
-    color: #FFFFFF;
-    background-color: #0D355A; /* new color goes her */
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    color: #000000;
+    background-color: #FFFFFF; /* new color goes her */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     height: 50px;
     
 }
-#btn1{
-    border:none;
-}
+
 #btn2{
-    color: #000000;
-    background-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #0D355A;
     
 }

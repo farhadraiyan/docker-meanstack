@@ -55,7 +55,7 @@
               <td>{{ vid.rating}}</td>
               <td>{{ vid.director}}</td>
               <td>{{ vid.status}}</td>
-              <td><img class="rounded-circle" style="height:30px; width:30px;" [src]="imgPath+vid.imgPath"></td>
+              <td><img class="rounded-circle" style="height:50px; width:50px;" [src]="imgPath+vid.imgPath"></td>
               <td><button [routerLink]="['/updatevideo/'+i]" class="btn btn-primary">Update</button></td>
               <td><button (click)="deleteVideo(i,vid._id)" class="btn btn-danger">Delete</button></td>
             </tr>
