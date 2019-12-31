@@ -5,7 +5,7 @@ FROM node:8.17.0-alpine3.9
 # ADD . $foo       # ADD . /bar
 # COPY \$foo /quux # COPY $foo /quux
 
-WORKDIR /usr/src/app/nodeapp
+WORKDIR /usr/src/app/node-server
 
 COPY package*.json ./
 
