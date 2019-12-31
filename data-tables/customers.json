@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5c0b348f170e2b064cfb892d"},"firstName":"Farhad","lastName":"Hossain","address":"crocus dr","city":"Scarborough","phone":"123123213","status":"Active","__v":0}
+{"_id":{"$oid":"5c0b34ae170e2b064cfb892e"},"firstName":"Igor ","lastName":"Mori","address":"North York","city":"York","phone":"23432423","status":"Inactive","__v":0}
+{"_id":{"$oid":"5c191fc1a6ca7fbab44eaf62"},"firstName":"Chuck","lastName":"Norris","address":"Kick street","city":"Texas","phone":"3333","status":"Active","__v":0}
