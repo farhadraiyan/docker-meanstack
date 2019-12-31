@@ -15,8 +15,12 @@ const custRoutes=require("./routes/customerroutes");
 //connect to mongodb
 //mongoose.connect("mongodb://FarhadHossain:Ekhane1987@ds121834.mlab.com:21834/videolibrary")
 
-//connect to local mongo db
+//connect to local mongo db through container
 mongoose.connect("mongodb://mongo:27017/docker-node-mongo", { useNewUrlParser: true })
+
+//connect to local mongo db locally 
+//mongoose.connect("mongodb://localhost/videoLibrary")
+
 //on connection
 mongoose.connection.on('connected',()=>{
     console.log("connected to database");

@@ -13,7 +13,7 @@ services:
         volumes: 
             - "./:/usr/src/app/node-server"
         ports:
-            - '9080:3000'
+            - '3000:3000'
         links: 
             - mongo
     angular:
@@ -30,8 +30,8 @@ services:
         image: mongo
         # env_file: 
         #     - ./node.env
-        volumes: 
-            - "./data:/data/db"
+        # volumes: 
+        #     - "./data:/data/db"
             # - type: volume
             #   source: mongodb-videolib
             #   target: /data/db
