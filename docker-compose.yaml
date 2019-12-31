@@ -12,6 +12,7 @@ services:
         #     - ./node.env
         volumes: 
             - "./:/usr/src/app/node-server"
+            - "/usr/src/app/node-server/node_modules"
         ports:
             - '3000:3000'
         links: 
@@ -23,6 +24,7 @@ services:
             dockerfile: Dockerfile
         volumes: 
             - "./MEANSTACKVIDEOSLIB:/usr/src/app/ng-client"
+            - "/usr/src/app/ng-client/node_modules"
         ports: 
             - "7202:4200"
     mongo:
