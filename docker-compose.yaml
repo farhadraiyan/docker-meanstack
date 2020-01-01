@@ -32,8 +32,11 @@ services:
         image: mongo
         # env_file: 
         #     - ./node.env
-        # volumes: 
-        #     - "./data:/data/db"
+        volumes:
+            # - "/home/farhad/Desktop/docker-projects/docker-meanstack/data:/data/db"
+            - type: volume
+              source: mongodb_mean
+              target: /data/db
             # - type: volume
             #   source: mongodb-videolib
             #   target: /data/db
@@ -45,3 +48,7 @@ services:
         # restart: always
         ports: 
             - '27017:27017'
+volumes:
+    mongodb_mean:
+        # external: 
+        #     name: mongodb_mean
